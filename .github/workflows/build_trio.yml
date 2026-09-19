@@ -200,7 +200,11 @@ jobs:
     steps:
       - name: Select Xcode version
         run: "sudo xcode-select --switch /Applications/Xcode_26.5.app/Contents/Developer"
-      
+      - name: Check Xcode and iOS SDK
+        run: |
+          xcode-select -p
+          xcodebuild -version
+          xcodebuild -showsdks      
       - name: Checkout Repo for building
         uses: actions/checkout@v5
         with:
